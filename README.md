@@ -1,4 +1,4 @@
-# 亮点：grafana直接调取echars图形，支持SQL
+# 亮点：grafana直接调取echarts图形，支持SQL
 * grafana版本 v6.2.5
 * 20191211修复加载问题
 * 如能帮助到您，欢迎给与支持，谢谢
@@ -10,14 +10,14 @@
 # 2. 重启grafana
 service grafana restart
 
-# 3. 直接调取echars js代码静态数据展示
+# 3. 直接调取echarts js代码静态数据展示
 * echars源地址：https://gallery.echartsjs.com/editor.html?c=xdExzKlpOh
 * option=(function(){
 * # echars代码片段，将echars js代码复制到这里
 * return option;
 * })();
 * 最后将这些代码放入Echarts Option中，详见demo
-* ![Image text](https://raw.githubusercontent.com/ocpeng/grafana-echarts-panel/master/grafana-chinamap-panel-master/demo/chinamap01.png)
+* ![Image text](https://raw.githubusercontent.com/ocpeng/grafana-echarts-panel/demo/01.png)
 
 # 4. 编写SQL动态数据展示
 * echars源地址：https://gallery.echartsjs.com/editor.html?c=xG3rZAFEqu
@@ -29,7 +29,7 @@ service grafana restart
 * from order1 
 * where status > 50
 * group by DATE_FORMAT(create_time,'%Y-%m')
-* 具体SQL位置
+* 具体SQL位置https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/echars_mysql.sql
 
 
 # 5. 如能帮助到您，欢迎给与支持，谢谢
