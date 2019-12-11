@@ -16,7 +16,8 @@ service grafana restart
 * // echars代码片段，将echars js代码复制到这里
 * return option;
 * })();
-* 最后将这些代码放入Echarts Option中，详见demo，https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/01.png
+* 最后将这些代码放入Echarts Option中，详见demo
+![Image text](https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/01.png)
 
 # 4. 编写SQL动态数据展示
 * echars源地址：https://gallery.echartsjs.com/editor.html?c=xG3rZAFEqu
