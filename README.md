@@ -16,8 +16,7 @@ service grafana restart
 * // echars代码片段，将echars js代码复制到这里
 * return option;
 * })();
-* 最后将这些代码放入Echarts Option中，详见demo
-* ![Image text](https://raw.githubusercontent.com/ocpeng/grafana-echarts-panel/blob/master/demo/01.png)
+* 最后将这些代码放入Echarts Option中，详见demo，https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/01.png
 
 # 4. 编写SQL动态数据展示
 * echars源地址：https://gallery.echartsjs.com/editor.html?c=xG3rZAFEqu
@@ -29,8 +28,8 @@ service grafana restart
 * from order1 
 * where status > 50
 * group by DATE_FORMAT(create_time,'%Y-%m')
-* 具体SQL位置https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/echars_mysql.sql
+* 具体SQL位置，https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/echars_mysql.sql
 
 
 # 5. 如能帮助到您，欢迎给与支持，谢谢
-![Image text](https://raw.githubusercontent.com/ocpeng/grafana-echarts-panel/blob/master/demo/03.png)
+![Image text](https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/03.png)
