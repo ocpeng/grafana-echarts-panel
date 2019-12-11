@@ -1,95 +1,36 @@
-## Echarts Panel Plugin for Grafana
+# 亮点：grafana直接调取echars图形，支持SQL
+* grafana版本 v6.2.5
+* 20191211修复加载问题
+* 如能帮助到您，欢迎给与支持，谢谢
+* 对https://github.com/soWill666/grafana-echarts-panel进行二次开发
 
-Grafana集成Echarts
-Grafana v4.1.x 
-Echarts v4.0.x
+# 1. 安装
+直接将插件复制到grafana目录下，默认目录为/var/lib/grafana/plugins/
 
-自定义数据源部分的代码出自这位大神 https://github.com/Billiballa/dxc-echarts-panel
+# 2. 重启grafana
+service grafana restart
 
-## 中国地图
-**ES数据源**
-![ ](./src/imgs/chinamap-es.png)
+# 3. 直接调取echars js代码静态数据展示
+* echars源地址：https://gallery.echartsjs.com/editor.html?c=xdExzKlpOh
+* option=(function(){
+* # echars代码片段，将echars js代码复制到这里
+* return option;
+* })();
+* 最后将这些代码放入Echarts Option中，详见demo
+* ![Image text](https://raw.githubusercontent.com/ocpeng/grafana-echarts-panel/master/grafana-chinamap-panel-master/demo/chinamap01.png)
 
-**Metrics**
-![ ](./src/imgs/metrics.png)
-
-**Echarts option**
-![ ](./src/imgs/map_option.png)
-```javascript
-option = {
-	title : {
-	
-	},
-	tooltip : {
-		trigger: 'item'
-	},
-	legend: {
-		orient: 'vertical',
-		left: 'left'
-	},
-	visualMap: {
-		min: 0,
-		max: 2000,         
-		calculable: true,
-		color: ['red','orange','yellow','lightgreen','green']
-	},
-	series : [
-		{
-			type: 'map',
-			mapType: 'china',
-			hoverable: true,
-			roam:true,
-			itemStyle:{
-				normal:{label:{show:true}, areaColor: '#edf2f1'},
-				emphasis:{label:{show:true}, areaColor: '#06060f'}
-			},
-			mapLocation: {
-				y: "center",
-				x: "center",
-				height: "320"
-			},
-			label: {
-				normal: {
-					show: true
-				},
-				emphasis: {
-					show: true
-				}
-			},
-			data: ctrl.data
-		}
-	]
-};
-```
-**效果图**
-![ ](./src/imgs/chinamap.png)
+# 4. 编写SQL动态数据展示
+* echars源地址：https://gallery.echartsjs.com/editor.html?c=xG3rZAFEqu
+* 利用拼SQL思想，简单举例，
+* select "option=(function(){ ......" from dual
+* union ALL
+* select 
+* concat("'",DATE_FORMAT(create_time,'%Y-%m'),"',")
+* from order1 
+* where status > 50
+* group by DATE_FORMAT(create_time,'%Y-%m')
+* 具体SQL位置
 
 
-## 自定义数据源
-**配置数据源**
-![ ](./src/imgs/cdata.png)
-示例中URL返回数据格式如下
-```javascript
-{"y": ["10", "100", "20", "12", "150"], "x": ["2018-01-01", "2018-01-02", "2018-01-03", "2018-01-04", "2018-01-05"]}
-```
-
-**配置Echarts**
-![ ](./src/imgs/line_option.png)
-
-**效果图**
-![ ](./src/imgs/cdata_ret.png)
-
-
-## 插件安装
-- 将本实例clone到你的plugins目录后重新启动grafana服务即可
-
-
-## 插件开发
-- git clone https://github.com/heruihong/grafana-echarts-panel
-- npm install 
-- grunt
-
-
-## 附录
-- [官方开发指南](http://docs.grafana.org/plugins/developing/development/)
-- [官方示例插件](https://github.com/grafana/piechart-panel)
+# 5. 如能帮助到您，欢迎给与支持，谢谢
+![Image text](https://raw.githubusercontent.com/ocpeng/grafana-echarts-panel/demo/03.png)

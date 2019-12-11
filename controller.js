@@ -1,6 +1,6 @@
 'use strict';
 
-System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', './libs/echarts.min', './libs/dark', './style.css!', './libs/china.js', './libs/bmap.min.js', './libs/getBmap.js', './data_formatter'], function (_export, _context) {
+System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', './libs/echarts.min', './libs/dark', './style.css!', './libs/china.js', './data_formatter'], function (_export, _context) {
     "use strict";
 
     var MetricsPanelCtrl, _, kbn, echarts, DataFormatter, _createClass, Controller;
@@ -44,7 +44,7 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', './libs/echa
             kbn = _appCoreUtilsKbn.default;
         }, function (_libsEchartsMin) {
             echarts = _libsEchartsMin.default;
-        }, function (_libsDark) {}, function (_styleCss) {}, function (_libsChinaJs) {}, function (_libsBmapMinJs) {}, function (_libsGetBmapJs) {}, function (_data_formatter) {
+        }, function (_libsDark) {}, function (_styleCss) {}, function (_libsChinaJs) {}, function (_data_formatter) {
             DataFormatter = _data_formatter.default;
         }],
         execute: function () {
@@ -174,7 +174,7 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', './libs/echa
                         ctrl.refreshed = true;
 
                         function setHeight() {
-                            var height = ctrl.height || ctrl.panel.height || 350;
+                            var height = ctrl.height || panel.height || ctrl.row.height;
                             if (_.isString(height)) {
                                 height = parseInt(height.replace('px', ''), 10);
                             }
@@ -222,18 +222,9 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', './libs/echa
                                 myChart.clear();
                                 echartsData = ctrl.data;
 
-                                if (echartsData) {
-                                    if (echartsData.length > 0) {
-                                        var srcData = "option = {}";
-                                        var rows = echartsData[0].rows;
-                                        srcData = rows.join("");
-                                        eval(srcData); // jshint ignore:line
-                                        myChart.setOption(option);
-                                    } else {
-                                        eval(ctrl.panel.EchartsOption); // jshint ignore:line
-                                        myChart.setOption(option);
-                                    }
-                                }
+                                eval(ctrl.panel.EchartsOption); // jshint ignore:line
+
+                                myChart.setOption(option);
                             }
                         }
 

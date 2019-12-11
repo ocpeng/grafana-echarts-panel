@@ -55,7 +55,8 @@ export default class DataFormatter {
       let highestValue = 0;
       let lowestValue = Number.MAX_VALUE;
       console.info('setGeohashValues...');
-      dataList[0].datapoints.forEach((datapoint) => {
+      //dataList[0].datapoints.forEach((datapoint) => {
+      dataList[0].forEach(function (datapoint) {
         const encodedGeohash = datapoint[this.ctrl.panel.esGeoPoint];
         const decodedGeohash = decodeGeoHash(encodedGeohash);
         
