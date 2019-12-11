@@ -13,7 +13,7 @@ service grafana restart
 # 3. 直接调取echarts js代码静态数据展示
 * echars源地址：https://gallery.echartsjs.com/editor.html?c=xdExzKlpOh
 * option=(function(){
-* # echars代码片段，将echars js代码复制到这里
+* // echars代码片段，将echars js代码复制到这里
 * return option;
 * })();
 * 最后将这些代码放入Echarts Option中，详见demo
