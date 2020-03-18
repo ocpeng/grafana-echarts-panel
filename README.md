@@ -12,24 +12,15 @@ service grafana restart
 
 # 3. 直接调取echarts js代码静态数据展示
 * echars源地址：https://gallery.echartsjs.com/editor.html?c=xdExzKlpOh
-* option=(function(){
-* // echars代码片段，将echars js代码复制到这里
-* return option;
-* })();
+* 使用方法腾讯课堂-搜：grafana运维监控与数据分析
+* 或者，网易云课堂-搜：grafana运维监控与数据分析
 * 最后将这些代码放入Echarts Option中，详见demo
 ![Image text](https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/01.png)
 
 # 4. 编写SQL动态数据展示
 * echars源地址：https://gallery.echartsjs.com/editor.html?c=xG3rZAFEqu
-* 利用拼SQL思想，简单举例，
-* select "option=(function(){ ......" from dual
-* union ALL
-* select 
-* concat("'",DATE_FORMAT(create_time,'%Y-%m'),"',")
-* from order1 
-* where status > 50
-* group by DATE_FORMAT(create_time,'%Y-%m')
-* 具体SQL位置，https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/echars_mysql.sql
+* 使用方法腾讯课堂-搜：grafana运维监控与数据分析
+* 或者，网易云课堂-搜：grafana运维监控与数据分析
 
 
 # 5. 如能帮助到您，欢迎给与支持，谢谢
