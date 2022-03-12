@@ -22,6 +22,3 @@ service grafana restart
 * 使用方法腾讯课堂-搜：grafana运维监控与数据分析
 * 或者，网易云课堂-搜：grafana运维监控与数据分析
 
-
-# 5. 如能帮助到您，欢迎给与支持，谢谢
-![Image text](https://github.com/ocpeng/grafana-echarts-panel/blob/master/demo/03.png)
